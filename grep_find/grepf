@@ -1,13 +1,14 @@
 #/bin/bash
 fileCount=$(find $(pwd)/ -name "*" 2> /dev/null | wc -l)
-files=$(find $(pwd)/ -name "*") 
+files=$(find $(pwd)/ -name "*")
+echo
 if [ $# != 0 ]; then
     for f in $files
-    do 
-        grep "$1" $f
+    do
+        grep "$1" $f 2> /dev/null && echo $f && echo
     done
 
-else 
+else
     echo "pass arguments"
 fi
 exit
